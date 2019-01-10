@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<!-- bootstrap embed-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Juragan Perabot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Filters</h1>
+    <form>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox">ID
+        </label>
+        <div class="col-10">
+          <input class="form-control" type="text" placeholder="String" id="example-text-input">
+        </div>
+      </div>
+      <div class="form-group row">
+          <label class="col-2 col-form-label">
+            <input class="form-check-input" type="checkbox">String
+          </label>
+          <div class="col-10">
+            <input class="form-control" type="text" placeholder="String" id="example-text-input">
+          </div>
+        </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox">Integer
+        </label>
+        <div class="col-10">
+          <input class="form-control" type="search" placeholder="Integer" id="example-search-input">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox">Float
+        </label>
+        <div class="col-10">
+          <input class="form-control" type="text" placeholder="Float" id="example-email-input">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox">Date
+        </label>
+        <div class="col-10">
+          <input class="form-control" type="text" placeholder="start date" id="example-email-input">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label"></label>
+        <div class="col-10">
+          <input class="form-control" type="text" placeholder="end date" id="example-email-input">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox">Boolean
+        </label>
+        <div class="col-10">
+          <select class="custom-select">
+            <option selected>Choose the boolean ...</option>
+            <option value="1">True</option>
+            <option value="2">False</option>
+          </select>
+        </div>
+      </div>
+      <div><br></div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <div><br></div>
+    </form>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col-sm-10">ID</th>
+          <th scope="col-sm-10">String</th>
+          <th scope="col-sm-10">Integer</th>
+          <th scope="col-sm-10">Float</th>
+          <th scope="col-sm-10">Date</th>
+          <th scope="col-sm-10">Boolean</th>
+          <th scope="col-sm-10">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item, index)=>{ %>
+        <tr>
+          <th scope="row">
+            <%= index + 1 %>
+          </th>
+          <td>
+            <%= item.string %>
+          </td>
+          <td>
+            <%= item.integer %>
+          </td>
+          <td>
+            <%= item.float %>
+          </td>
+          <td>
+            <%= item.date %>
+          </td>
+          <td>
+            <%= item.boolean %>
+          </td>
+          <td><a href="edit/<%= index %>" button type="submit" class="btn btn-primary">Edit</button>
+              <a href="delete/<%= index %>" class="btn btn-danger" style="margin:5px;">Delete</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="add" button type="submit" class="btn btn-primary">ADD</a>
+  </div>
+</body>
+
+</html>
